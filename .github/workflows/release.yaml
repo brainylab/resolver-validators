@@ -16,6 +16,9 @@ jobs:
       - name: checkout branch
         uses: actions/checkout@v4
 
+      - name: Git fetch tags
+        run: git fetch --tags origin
+
       - name: install and configure git
         uses: ./.github/common-actions/install
 
@@ -59,8 +62,9 @@ jobs:
     steps:
       - name: checkout branch
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+
+      - name: Git fetch tags
+        run: git fetch --tags origin
 
       - name: install and configure git
         uses: ./.github/common-actions/install
