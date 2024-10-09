@@ -2,12 +2,12 @@
 	"$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
 	"changelog": [
 		"@changesets/changelog-github",
-		{ "repo": "@brainylab/resolver-validator" }
+		{ "repo": "brainylab/resolver-validators" }
 	],
 	"commit": false,
 	"fixed": [],
 	"linked": [],
-	"access": "restricted",
+	"access": "public",
 	"baseBranch": "beta",
 	"updateInternalDependencies": "patch",
 	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {

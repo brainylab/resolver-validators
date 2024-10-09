@@ -9,12 +9,15 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  release:
-    name: Release
+  release-npm:
+    name: Release to NPM
     runs-on: ubuntu-latest
     steps:
       - name: checkout branch
         uses: actions/checkout@v4
+
+      - name: Git fetch tags
+        run: git fetch --tags origin
 
       - name: install and configure git
         uses: ./.github/common-actions/install
@@ -25,6 +28,11 @@ jobs:
       # - name: Tests
       #   run: pnpm test
 
+      - name: npm package registry authentication
+        run: npm set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: create release pull request or publish to NPM
         id: changesets
         uses: changesets/action@v1
@@ -34,9 +42,38 @@ jobs:
           commit: 'ci(changesets): version packages'
           setupGitUser: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: sync files from beta to main branch if a publish happens
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/brainylab/resolver-validators/dispatches \
+            -d '{"event_type":"sync-beta-to-main"}'
+
+  release-grp:
+    name: Release to GRP
+    runs-on: ubuntu-latest
+    needs: release-npm
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@v4
+
+      - name: Git fetch tags
+        run: git fetch --tags origin
+
+      - name: install and configure git
+        uses: ./.github/common-actions/install
+
+      - name: build packages
+        run: pnpm build
+
+      # - name: Tests
+      #   run: pnpm test
 
       - name: get package registry GRP
         run: npm config set registry https://npm.pkg.github.com
@@ -57,12 +94,3 @@ jobs:
           NPM_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GHP_PACKAGES_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
-
-      - name: sync files from beta to main branch if a publish happens
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/brainylab/resolver-validators/dispatches \
-            -d '{"event_type":"sync-beta-to-main"}'
