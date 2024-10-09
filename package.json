@@ -17,10 +17,10 @@
 	},
 	"type": "module",
 	"files": [
-		"./index.js",
-		"./index.d.ts",
-		"./index.cjs",
-		"./resolvers"
+		"index.js",
+		"index.d.ts",
+		"index.cjs",
+		"resolvers"
 	],
 	"scripts": {
 		"build": "rimraf dist && pnpm build:core && pnpm build:typebox && pnpm build:create:package && pnpm build:copy:files",
@@ -74,5 +74,5 @@
 		"access": "public",
 		"provenance": true
 	},
-	"clean-package": "../clean-package.config.json"
+	"clean-package": "./clean-package.config.json"
 }
