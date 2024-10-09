@@ -41,7 +41,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: cd dist && pnpm release
           title: 'ci(changesets): :package: version packages'
           commit: 'ci(changesets): version packages'
           setupGitUser: false
@@ -86,4 +86,4 @@ jobs:
         run: npm set //npm.pkg.github.com/:_authToken=${{ secrets.GHP_PACKAGES_TOKEN }}
 
       - name: publish packages on GRP
-        run: npm run release
+        run: cd dist && pnpm run release

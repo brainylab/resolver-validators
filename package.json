@@ -16,19 +16,9 @@
 		"email": "andrefelipeschulle@icloud.com"
 	},
 	"type": "module",
-	"exports": {
-		"./typebox": {
-			"types": "./dist/typebox.d.ts",
-			"import": "./dist/typebox.mjs",
-			"require": "./dist/typebox.js"
-		},
-		"./package.json": "./package.json"
-	},
-	"files": [
-		"dist"
-	],
 	"scripts": {
-		"build": "rimraf dist && tsup --dts",
+		"build": "rimraf dist && tsup --dts && pnpm build:copy:files",
+		"build:copy:files": "cp package.json README.md LICENSE dist/",
 		"commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
 		"commit:add": "git add .",
 		"commit:detail": "cz",
@@ -74,5 +64,6 @@
 	"publishConfig": {
 		"access": "public",
 		"provenance": true
-	}
+	},
+	"clean-package": "../clean-package.config.json"
 }

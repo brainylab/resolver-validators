@@ -7,19 +7,19 @@
 		"config"
 	],
 	"replace": {
-		"main": "dist/index.cjs",
-		"module": "dist/index.js",
-		"types": "dist/index.d.ts",
+		"main": "./index.cjs",
+		"module": "./index.js",
+		"types": "./index.d.ts",
 		"exports": {
 			".": {
-				"types": "./dist/index.d.ts",
-				"import": "./dist/index.js",
-				"require": "./dist/index.cjs"
+				"types": "./index.d.ts",
+				"import": "./index.js",
+				"require": "./index.cjs"
 			},
 			"./typebox": {
-				"types": "./dist/typebox.d.ts",
-				"import": "./dist/typebox.js",
-				"require": "./dist/typebox.cjs"
+				"types": "./typebox.d.ts",
+				"import": "./typebox.js",
+				"require": "./typebox.cjs"
 			},
 			"./package.json": "./package.json"
 		}
