@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.1.0
+
+### Minor Changes
+
+- [`e93cd6c`](https://github.com/brainylab/resolver-validators/commit/e93cd6c8d2816ef7613619abc796e611415c5d86) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - create resolver typebox and fix types
+
 ## 0.0.3
 
 ### Patch Changes
