@@ -32,6 +32,8 @@
 		"commit:add": "git add .",
 		"commit:detail": "cz",
 		"commit:push": "git push",
+		"prepack": "clean-package",
+		"postpack": "clean-package restore",
 		"release": "changeset publish",
 		"release:beta": "changeset publish --snapshot --no-git-tag --tag beta",
 		"version": "changeset version",
