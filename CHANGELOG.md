@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.1.1
+
+### Patch Changes
+
+- [`c11a6f8`](https://github.com/brainylab/resolver-validators/commit/c11a6f89aac8c0670d35860696c5cd66d278deb3) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - add provenance on ci
+
 ## 0.1.0
 
 ### Minor Changes
