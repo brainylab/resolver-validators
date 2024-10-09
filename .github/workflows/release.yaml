@@ -55,9 +55,12 @@ jobs:
   release-grp:
     name: Release to GRP
     runs-on: ubuntu-latest
+    needs: release-npm
     steps:
       - name: checkout branch
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: install and configure git
         uses: ./.github/common-actions/install
