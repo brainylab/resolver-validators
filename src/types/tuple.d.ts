@@ -10,6 +10,6 @@ type TupleInfer<
 	: Acc;
 
 export interface RVTuple<T> extends RVSchema {
-	rv_type: 'array';
-	rv_infer: TupleInfer<T, this['params']>;
+	type: 'tuple';
+	infer: TupleInfer<T, this['params']>;
 }

@@ -1,9 +1,9 @@
 import { Type } from '@sinclair/typebox';
 
 import type { StringOptions, TString } from '@sinclair/typebox';
-import type { RVString, RVStringParams } from '@/types/string';
+import type { RVStringParams } from '@/types/string';
 
-export function string(params?: RVStringParams): RVString & TString {
+export function TBString(params?: RVStringParams): TString {
 	const typeBoxParams: StringOptions = {};
 
 	if (params?.min) {
@@ -23,10 +23,5 @@ export function string(params?: RVStringParams): RVString & TString {
 		typeBoxParams.pattern = params.regex;
 	}
 
-	const resolved = Type.String(typeBoxParams);
-
-	return {
-		rv_type: 'string',
-		...resolved,
-	} as never;
+	return Type.String(typeBoxParams);
 }

@@ -3,7 +3,7 @@ import type { InferTypes } from './infer-types';
 import type { CreateInfer } from './helpers';
 import type { RVOptional } from './optional';
 
-export type RVReadonly<T extends RVSchema> = T & { rv_readonly: true };
+export type RVReadonly<T extends RVSchema> = T & { readonly: true };
 export type Evaluate<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
 
 type OptionalPropertyKeys<T extends RVProperties> = {
@@ -41,6 +41,6 @@ export type RVProperties = Record<RVPropertyKey, InferTypes>;
 
 export interface RVObject<T extends RVProperties = RVProperties>
 	extends RVSchema {
-	rv_type: 'object';
-	rv_infer: ObjectInfer<T, this['params']>;
+	type: 'object';
+	infer: ObjectInfer<T, this['params']>;
 }

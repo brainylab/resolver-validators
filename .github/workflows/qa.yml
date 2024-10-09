@@ -19,22 +19,18 @@ jobs:
       - name: build packages
         run: pnpm build
 
-  # tests:
-  #   name: test all packages
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout branch
-  #       uses: actions/checkout@v4
+  tests:
+    name: test all packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
 
-  #     - name: install packages
-  #       uses: ./.github/common-actions/install
-  #       env:
-  #         GHP_PACKAGES_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
+      - name: install packages
+        uses: ./.github/common-actions/install
 
-  #     - name: run tests
-  #       run: pnpm test
-  #       env:
-  #         GHP_PACKAGES_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
+      - name: run tests
+        run: pnpm test
 
   # eslint:
   #   name: lint all packages

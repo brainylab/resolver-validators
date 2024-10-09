@@ -1,9 +1,9 @@
 import { Type } from '@sinclair/typebox';
 
 import type { NumberOptions, TNumber } from '@sinclair/typebox';
-import type { RVNumber, RVNumberParams } from '@/types/number';
+import type { RVNumberParams } from '@/types/number';
 
-export function number(params?: RVNumberParams): RVNumber & TNumber {
+export function TBNumber(params?: RVNumberParams): TNumber {
 	const typeBoxParams: NumberOptions = {};
 
 	if (params?.min) {
@@ -14,10 +14,5 @@ export function number(params?: RVNumberParams): RVNumber & TNumber {
 		typeBoxParams.maxLength = params.max;
 	}
 
-	const resolved = Type.Number(typeBoxParams);
-
-	return {
-		rv_type: 'number',
-		...resolved,
-	} as never;
+	return Type.Number(typeBoxParams);
 }

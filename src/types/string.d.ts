@@ -7,6 +7,7 @@ export type RVStringParams = RVParams & {
 };
 
 export interface RVString extends RVSchema {
-	rv_type: 'string';
-	rv_infer: string;
+	type: 'string';
+	infer: string;
+	params?: RVStringParams;
 }

@@ -1,16 +1,7 @@
 import { Type } from '@sinclair/typebox';
 
-import type { RVSchema } from '@/types/schema';
-import type { TTuple } from '@sinclair/typebox';
-import type { RVTuple } from '@/types/tuple';
+import type { TSchema, TTuple } from '@sinclair/typebox';
 
-export function tuple<T extends RVSchema[]>(
-	schemas: [...T],
-): RVTuple<T> & TTuple {
-	const resolved = Type.Array(schemas as unknown as TTuple);
-
-	return {
-		rv_type: 'array',
-		...resolved,
-	} as never;
+export function TBTuple(schemas: TSchema[]): TTuple {
+	return Type.Tuple(schemas);
 }

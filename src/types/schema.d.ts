@@ -1,3 +1,6 @@
 export interface RVSchema {
-	rv_infer: unknown;
+	type: unknown;
+	infer: unknown;
+	schema: unknown;
+	optional?: boolean;
 }

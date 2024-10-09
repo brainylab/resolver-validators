@@ -1,8 +1,9 @@
 {
 	"compilerOptions": {
-		"lib": ["ES2023"],
-		"module": "node16",
-		"target": "ES2022",
+		"target": "esnext",
+		"module": "esnext",
+		"lib": ["dom", "esnext"],
+		"moduleResolution": "node",
 		"rootDir": "./",
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
@@ -10,8 +11,9 @@
 		"skipLibCheck": true,
 		"paths": {
 			"@/*": ["./src/*"]
-		}
+		},
+		"types": ["vitest"]
 	},
-	"include": ["src/**/*", "./tsup.config.ts", "./test.ts"],
+	"include": ["src/**/*", "./tsup.config.ts"],
 	"exclude": ["node_modules"]
 }
