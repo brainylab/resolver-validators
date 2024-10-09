@@ -28,7 +28,7 @@ jobs:
       - name: npm package registry authentication
         run: npm set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
         env:
-          NPM_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: create release pull request or publish to NPM
         id: changesets
