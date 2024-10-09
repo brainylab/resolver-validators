@@ -89,4 +89,4 @@ jobs:
         run: npm set //npm.pkg.github.com/:_authToken=${{ secrets.GHP_PACKAGES_TOKEN }}
 
       - name: publish packages on GRP
-        run: npm release
+        run: npm run release
