@@ -1,0 +1,35 @@
+name: sync beta to main
+
+on:
+  repository_dispatch:
+    types: [sync-beta-to-main]
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: create pull request
+        uses: repo-sync/pull-request@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: 'beta'
+          destination_branch: 'main'
+          pr_title: 'auto-sync beta to main'
+          pr_body: |
+            ## Automated: Sync from Beta to Main
+
+            This Pull Request is automatically generated to sync the changes from the Beta branch to the Main branch. Below are the included updates:
+
+            ###  Triggered by a Direct Push to Main:
+            - Please check the recent commits on the Beta branch directly as this sync may include multiple changes.
+
+            ### Action Required:
+            - Please review the changes carefully.
+            - Approve and merge the Pull Request if everything is in order.
+
+            Thank you for maintaining the Main branch updated and clean.

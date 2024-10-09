@@ -1,0 +1,63 @@
+{
+	"name": "@brainylab/resolver-validators",
+	"version": "0.0.1",
+	"description": "",
+	"keywords": [],
+	"bugs": {
+		"url": "https://github.com/brainylab/resolve-validator/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brainylab/resolve-validator.git"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "André Felipe Schulle",
+		"email": "andrefelipeschulle@icloud.com"
+	},
+	"exports": {
+		"./typebox": {
+			"types": "./dist/typebox.d.ts",
+			"import": "./dist/typebox.mjs",
+			"require": "./dist/typebox.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "rimraf dist && tsup --dts",
+		"commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
+		"commit:add": "git add .",
+		"commit:detail": "cz",
+		"commit:push": "git push",
+		"release": "changeset publish",
+		"release:beta": "changeset publish --snapshot --no-git-tag --tag beta",
+		"version": "changeset version",
+		"version:beta": "changeset version --snapshot beta"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"devDependencies": {
+		"@brainylab/eslint-config": "2.7.0",
+		"@brainylab/prettier-config": "1.0.1",
+		"@changesets/changelog-github": "0.5.0",
+		"@changesets/cli": "2.24.1",
+		"@changesets/get-release-plan": "3.0.12",
+		"@changesets/types": "5.1.0",
+		"@sinclair/typebox": "0.33.15",
+		"@types/node": "^22.7.4",
+		"clean-package": "2.2.0",
+		"commitizen": "4.3.0",
+		"cz-conventional-changelog": "3.3.0",
+		"rimraf": "6.0.1",
+		"tsup": "8.3.0",
+		"tsx": "4.19.1",
+		"typescript": "5.6.2"
+	},
+	"packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
+}

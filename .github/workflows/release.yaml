@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - beta
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@v4
+
+      - name: install and configure git
+        uses: ./.github/common-actions/install
+
+      - name: build packages
+        run: pnpm build
+
+      # - name: Tests
+      #   run: pnpm test
+
+      - name: create release pull request or publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+          title: 'ci(changesets): :package: version packages'
+          commit: 'ci(changesets): version packages'
+          setupGitUser: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: get package registry GRP
+        run: npm config set registry https://npm.pkg.github.com
+
+      - name: github package registry authentication
+        run: npm set //npm.pkg.github.com/:_authToken=${{ secrets.GHP_PACKAGES_TOKEN }}
+
+      - name: create release pull request or publish to GRP
+        id: changesets-npm
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+          title: 'ci(changesets-npm): :package: version packages'
+          commit: 'ci(changesets-npm): version packages'
+          setupGitUser: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHP_PACKAGES_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
+
+      - name: sync files from beta to main branch if a publish happens
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/brainylab-ui/web-ui/dispatches \
+            -d '{"event_type":"sync-beta-to-main"}'
