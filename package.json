@@ -16,9 +16,18 @@
 		"email": "andrefelipeschulle@icloud.com"
 	},
 	"type": "module",
+	"files": [
+		"./index.js",
+		"./index.d.ts",
+		"./index.cjs",
+		"./resolvers"
+	],
 	"scripts": {
-		"build": "rimraf dist && tsup --dts && pnpm build:copy:files",
-		"build:copy:files": "cp package.json README.md LICENSE dist/",
+		"build": "rimraf dist && pnpm build:core && pnpm build:typebox && pnpm build:create:package && pnpm build:copy:files",
+		"build:copy:files": "cp -r ./dist/** ./",
+		"build:core": "tsup src/index.ts --dts",
+		"build:create:package": "node ./scripts/create-package.mjs",
+		"build:typebox": "tsup src/resolvers/typebox/index.ts --dts --out-dir dist/resolvers/typebox",
 		"commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
 		"commit:add": "git add .",
 		"commit:detail": "cz",

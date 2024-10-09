@@ -3,3 +3,8 @@ dist
 coverage
 
 .DS_Store
+resolvers/*
+index.cjs
+index.d.ts
+index.d.cts
+index.js
