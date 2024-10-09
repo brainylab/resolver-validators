@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.1.2
+
+### Patch Changes
+
+- [`c65d1b3`](https://github.com/brainylab/resolver-validators/commit/c65d1b39346a0d48b788ae5ad6f990c7042cd24c) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - update version
+
 ## 0.1.1
 
 ### Patch Changes
