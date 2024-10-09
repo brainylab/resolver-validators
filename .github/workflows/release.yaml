@@ -81,16 +81,5 @@ jobs:
       - name: github package registry authentication
         run: npm set //npm.pkg.github.com/:_authToken=${{ secrets.GHP_PACKAGES_TOKEN }}
 
-      - name: create release pull request or publish to GRP
-        id: changesets-npm
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
-          title: 'ci(changesets-npm): :package: version packages'
-          commit: 'ci(changesets-npm): version packages'
-          setupGitUser: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GHP_PACKAGES_TOKEN: ${{ secrets.GHP_PACKAGES_TOKEN }}
+      - name: Publish Packages on GRP
+        run: cd dist && npm publish --provenance --access public
