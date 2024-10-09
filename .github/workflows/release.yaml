@@ -25,6 +25,9 @@ jobs:
       # - name: Tests
       #   run: pnpm test
 
+      - name: npm package registry authentication
+        run: npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+
       - name: create release pull request or publish to NPM
         id: changesets
         uses: changesets/action@v1
