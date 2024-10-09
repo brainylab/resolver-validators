@@ -7,6 +7,6 @@ type ArrayStatic<T extends RVSchema, P extends unknown[]> = VerifyInfer<
 >;
 
 export interface RVArray<T> extends RVSchema {
-	rv_type: 'array';
-	rv_infer: ArrayStatic<T, this['params']>;
+	type: 'array';
+	infer: ArrayStatic<T, this['params']>;
 }
