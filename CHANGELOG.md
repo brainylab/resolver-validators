@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.2.0
+
+### Minor Changes
+
+- [`3a8ad66`](https://github.com/brainylab/resolver-validators/commit/3a8ad666b2f806818295a44280db677c82dac952) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - move typebox on root package and refactor path export on package
+
 ## 0.1.2
 
 ### Patch Changes
