@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.3.0
+
+### Minor Changes
+
+- [`76675ab`](https://github.com/brainylab/resolver-validators/commit/76675ab02e49c5041642350278354d6f683dc783) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - refactor export core functions
+
 ## 0.2.0
 
 ### Minor Changes
