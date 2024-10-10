@@ -2,14 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Converte import.meta.url para um caminho de arquivo
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const distPath = path.resolve(__dirname, '..', 'dist');
 
 const getFolders = () => {
-	const folders = [path.resolve(distPath, 'resolvers', 'typebox')];
+	const folders = [path.resolve(distPath, 'typebox')];
 
 	return folders;
 };

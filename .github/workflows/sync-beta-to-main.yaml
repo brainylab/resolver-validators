@@ -19,7 +19,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: 'beta'
           destination_branch: 'main'
-          pr_title: 'auto-sync beta to main'
+          pr_title: 'auto sync beta to main'
           pr_body: |
             ## Automated: Sync from Beta to Main
 

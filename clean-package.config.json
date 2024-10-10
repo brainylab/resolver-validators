@@ -17,9 +17,9 @@
 				"require": "./index.cjs"
 			},
 			"./typebox": {
-				"types": "./typebox.d.ts",
-				"import": "./typebox.js",
-				"require": "./typebox.cjs"
+				"types": "./typebox/index.d.ts",
+				"import": "./typebox/index.js",
+				"require": "./typebox/index.cjs"
 			},
 			"./package.json": "./package.json"
 		}
