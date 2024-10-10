@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   id-token: write
+  pull-requests: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -19,9 +20,6 @@ jobs:
     steps:
       - name: checkout branch
         uses: actions/checkout@v4
-
-      - name: Git fetch tags
-        run: git fetch --tags origin
 
       - name: install and configure git
         uses: ./.github/common-actions/install
@@ -86,4 +84,4 @@ jobs:
         run: npm set //npm.pkg.github.com/:_authToken=${{ secrets.GHP_PACKAGES_TOKEN }}
 
       - name: publish packages on GRP
-        run: npm run release
+        run: pnpm run release

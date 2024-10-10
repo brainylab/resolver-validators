@@ -1,6 +1,6 @@
 {
 	"name": "@brainylab/resolver-validators",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "",
 	"keywords": [],
 	"bugs": {
@@ -16,19 +16,18 @@
 		"email": "andrefelipeschulle@icloud.com"
 	},
 	"type": "module",
-	"exports": {
-		"./typebox": {
-			"types": "./dist/typebox.d.ts",
-			"import": "./dist/typebox.mjs",
-			"require": "./dist/typebox.js"
-		},
-		"./package.json": "./package.json"
-	},
 	"files": [
-		"dist"
+		"index.js",
+		"index.d.ts",
+		"index.cjs",
+		"resolvers"
 	],
 	"scripts": {
-		"build": "rimraf dist && tsup --dts",
+		"build": "rimraf dist && pnpm build:core && pnpm build:typebox && pnpm build:create:package && pnpm build:copy:files",
+		"build:copy:files": "cp -r ./dist/** ./",
+		"build:core": "tsup src/index.ts --dts",
+		"build:create:package": "node ./scripts/create-package.mjs",
+		"build:typebox": "tsup src/resolvers/typebox/index.ts --dts --out-dir dist/resolvers/typebox",
 		"commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
 		"commit:add": "git add .",
 		"commit:detail": "cz",
@@ -74,5 +73,6 @@
 	"publishConfig": {
 		"access": "public",
 		"provenance": true
-	}
+	},
+	"clean-package": "./clean-package.config.json"
 }

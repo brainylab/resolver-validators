@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { Type } from '@sinclair/typebox';
 
-import { resolver } from './typebox';
+import { rv } from '../../index';
 
-import { rv } from './index';
+import { resolver } from './resolver';
 
 describe('TypeBox Resolver', () => {
 	it('resolver core schema to typebox validator', () => {
