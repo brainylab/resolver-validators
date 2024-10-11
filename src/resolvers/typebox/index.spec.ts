@@ -8,7 +8,7 @@ import { resolver } from './resolver';
 describe('TypeBox Resolver', () => {
 	it('resolver core schema to typebox validator', () => {
 		const coreSchema = rv.object({
-			name: rv.string(),
+			name: rv.required(rv.string(), { description: 'description test' }),
 			age: rv.optional(rv.number()),
 			isActive: rv.boolean(),
 			other: rv.object({
@@ -21,7 +21,7 @@ describe('TypeBox Resolver', () => {
 		});
 
 		const typeBoxSchema = Type.Object({
-			name: Type.String(),
+			name: Type.Required(Type.String(), { description: 'description test' }),
 			age: Type.Optional(Type.Number()),
 			isActive: Type.Boolean(),
 			other: Type.Object({

@@ -6,21 +6,21 @@ import type { RVStringParams } from '@/types/string';
 export function TBString(params?: RVStringParams): TString {
 	const typeBoxParams: StringOptions = {};
 
-	if (params?.min) {
-		typeBoxParams.minLength = params.min;
-	}
+	const keys: { [key in keyof RVStringParams]: string } = {
+		min: 'minLength',
+		max: 'maxLength',
+		format: 'format',
+		pattern: 'pattern',
+		description: 'description',
+	};
 
-	if (params?.max) {
-		typeBoxParams.maxLength = params.max;
-	}
-
-	if (params?.format) {
-		typeBoxParams.format = params.format;
-	}
-
-	if (params?.regex) {
-		typeBoxParams.format = 'regex';
-		typeBoxParams.pattern = params.regex;
+	if (params) {
+		for (const key in keys) {
+			const mappedKey = keys[key as keyof typeof keys] as keyof RVStringParams;
+			if (params[key as keyof RVStringParams] !== undefined) {
+				typeBoxParams[mappedKey] = params[key as keyof RVStringParams];
+			}
+		}
 	}
 
 	return Type.String(typeBoxParams);
