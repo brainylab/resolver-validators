@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.4.0
+
+### Minor Changes
+
+- [`e8275c5`](https://github.com/brainylab/resolver-validators/commit/e8275c59257a12df2b3476e27c147fc20baa00d7) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - create required and add param description on required,string,number
+
 ## 0.3.0
 
 ### Minor Changes
