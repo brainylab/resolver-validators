@@ -11,5 +11,6 @@ export type RVTypes =
 	| 'object'
 	| 'optional'
 	| 'required'
+	| 'or'
 	| 'string'
 	| 'tuple';

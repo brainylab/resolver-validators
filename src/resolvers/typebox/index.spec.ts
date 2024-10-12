@@ -17,7 +17,7 @@ describe('TypeBox Resolver', () => {
 			}),
 			hobbies: rv.array(rv.string()),
 			cities: rv.tuple([rv.string(), rv.number()]),
-			date: rv.date(),
+			date: rv.or(rv.date(), rv.string()),
 		});
 
 		const typeBoxSchema = Type.Object({
@@ -30,7 +30,7 @@ describe('TypeBox Resolver', () => {
 			}),
 			hobbies: Type.Array(Type.String()),
 			cities: Type.Tuple([Type.String(), Type.Number()]),
-			date: Type.Date(),
+			date: Type.Union([Type.Date(), Type.String()]),
 		});
 
 		const resolvedTypeBox = resolver(coreSchema);

@@ -24,6 +24,9 @@ import { optional } from './core/optional';
 export type * from './types/optional';
 
 import { required } from './core/required';
+export type * from './types/required';
+
+import { or } from './core/or';
 // export type * from './types/required';
 
 import { string } from './core/string';
@@ -43,6 +46,7 @@ export const rv = {
 	object,
 	optional,
 	required,
+	or,
 	string,
 	tuple,
 	isArray,
