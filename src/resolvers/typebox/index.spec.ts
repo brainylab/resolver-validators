@@ -8,7 +8,7 @@ import { resolver } from './resolver';
 describe('TypeBox Resolver', () => {
 	it('resolver core schema to typebox validator', () => {
 		const coreSchema = rv.object({
-			name: rv.string(),
+			name: rv.required(rv.string(), { description: 'description test' }),
 			age: rv.optional(rv.number()),
 			isActive: rv.boolean(),
 			other: rv.object({
@@ -17,11 +17,11 @@ describe('TypeBox Resolver', () => {
 			}),
 			hobbies: rv.array(rv.string()),
 			cities: rv.tuple([rv.string(), rv.number()]),
-			date: rv.date(),
+			date: rv.or(rv.date(), rv.string()),
 		});
 
 		const typeBoxSchema = Type.Object({
-			name: Type.String(),
+			name: Type.Required(Type.String(), { description: 'description test' }),
 			age: Type.Optional(Type.Number()),
 			isActive: Type.Boolean(),
 			other: Type.Object({
@@ -30,7 +30,7 @@ describe('TypeBox Resolver', () => {
 			}),
 			hobbies: Type.Array(Type.String()),
 			cities: Type.Tuple([Type.String(), Type.Number()]),
-			date: Type.Date(),
+			date: Type.Union([Type.Date(), Type.String()]),
 		});
 
 		const resolvedTypeBox = resolver(coreSchema);

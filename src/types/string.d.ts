@@ -3,7 +3,7 @@ import type { RVParams } from './params';
 
 export type RVStringParams = RVParams & {
 	format?: 'email';
-	regex?: string;
+	pattern?: string;
 };
 
 export interface RVString extends RVSchema {

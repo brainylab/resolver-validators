@@ -1,5 +1,29 @@
 # @brainylab/resolver-validators
 
+## 0.5.0
+
+### Minor Changes
+
+- [`3dddaaf`](https://github.com/brainylab/resolver-validators/commit/3dddaaf7a953ad77f49754cb45566ad1b7209d4c) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - create function resolver "or" and types
+
+## 0.4.0
+
+### Minor Changes
+
+- [`e8275c5`](https://github.com/brainylab/resolver-validators/commit/e8275c59257a12df2b3476e27c147fc20baa00d7) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - create required and add param description on required,string,number
+
+## 0.3.0
+
+### Minor Changes
+
+- [`76675ab`](https://github.com/brainylab/resolver-validators/commit/76675ab02e49c5041642350278354d6f683dc783) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - refactor export core functions
+
+## 0.2.0
+
+### Minor Changes
+
+- [`3a8ad66`](https://github.com/brainylab/resolver-validators/commit/3a8ad666b2f806818295a44280db677c82dac952) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - move typebox on root package and refactor path export on package
+
 ## 0.1.2
 
 ### Patch Changes

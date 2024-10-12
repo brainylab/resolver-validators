@@ -8,6 +8,8 @@ import { TBBoolean } from './boolean';
 import { TBDate } from './date';
 import { TBArray } from './array';
 import { TBTuple } from './tuple';
+import { TBRequired } from './required';
+import { TBUnion } from './or';
 
 import type { TArray, TObject, TSchema } from '@sinclair/typebox';
 import type { RVParams } from '@/types/params';
@@ -67,6 +69,21 @@ function resolverPrimitiveSchema(
 	if (options.type === 'optional') {
 		return TBOptional(
 			resolverPrimitiveSchema(options.schema as PrimitiveSchema) as TSchema,
+		);
+	}
+
+	if (options.type === 'required') {
+		return TBRequired(
+			resolverPrimitiveSchema(options.schema as PrimitiveSchema) as TSchema,
+			options.params,
+		);
+	}
+
+	if (options.type === 'or') {
+		return TBUnion(
+			options.schemas?.map(
+				(item) => resolverPrimitiveSchema(item as PrimitiveSchema) as TSchema,
+			) as TSchema[],
 		);
 	}
 }
