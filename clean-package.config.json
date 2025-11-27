@@ -1,6 +1,9 @@
 {
-  "remove": ["devDependencies", "dependencies", "scripts", "packageManager"],
+  "remove": ["devDependencies", "dependencies", "scripts"],
   "replace": {
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
@@ -8,14 +11,14 @@
         "require": "./dist/index.cjs"
       },
       "./typebox": {
-        "types": "./dist/typebox/index.d.ts",
-        "import": "./dist/typebox/index.js",
-        "require": "./dist/typebox/index.cjs"
+        "types": "./dist/resolvers/typebox/index.d.ts",
+        "import": "./dist/resolvers/typebox/index.js",
+        "require": "./dist/resolvers/typebox/index.cjs"
       },
       "./zod": {
-        "types": "./dist/zod/index.d.ts",
-        "import": "./dist/zod/index.js",
-        "require": "./dist/zod/index.cjs"
+        "types": "./dist/resolvers/zod/index.d.ts",
+        "import": "./dist/resolvers/zod/index.js",
+        "require": "./dist/resolvers/zod/index.cjs"
       },
       "./package.json": "./package.json"
     }
