@@ -7,5 +7,6 @@ export default defineConfig({
   format: ["cjs", "esm"],
   splitting: false,
   bundle: true,
+  dts: true,
   external: ["@sinclair/typebox", "zod"],
 })
