@@ -1,5 +1,5 @@
 export type RVParams = {
-	min?: number;
-	max?: number;
-	description?: string;
-};
+  min?: number
+  max?: number
+  description?: string
+}
