@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.6.2
+
+### Patch Changes
+
+- [`2cad7bf`](https://github.com/brainylab/resolver-validators/commit/2cad7bf54c7a3eb1e2b59f4cccb3a3a97509ed29) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix build and types
+
 ## 0.6.1
 
 ### Patch Changes
