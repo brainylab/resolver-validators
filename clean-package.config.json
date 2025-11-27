@@ -2,7 +2,8 @@
 	"remove": [
 		"devDependencies",
 		"dependencies",
-		"scripts"
+		"scripts",
+		"packageManager"
 	],
 	"replace": {
 		"main": "./dist/index.cjs",
