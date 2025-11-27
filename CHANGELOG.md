@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.5.0
+
+### Minor Changes
+
+- [`3dddaaf`](https://github.com/brainylab/resolver-validators/commit/3dddaaf7a953ad77f49754cb45566ad1b7209d4c) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - create function resolver "or" and types
+
 ## 0.4.0
 
 ### Minor Changes
