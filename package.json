@@ -1,6 +1,6 @@
 {
 	"name": "@brainylab/resolver-validators",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"description": "",
 	"keywords": [],
 	"bugs": {
@@ -17,7 +17,7 @@
 	},
 	"type": "module",
 	"files": [
-	  "dist"
+		"dist"
 	],
 	"scripts": {
 		"build": "pnpm tsup",
