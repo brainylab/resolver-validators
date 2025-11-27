@@ -1,7 +1,7 @@
-import type { RVBoolean } from '@/types/boolean';
+import type { RVBoolean } from "@/types/boolean"
 
 export function boolean(): RVBoolean {
-	return {
-		type: 'boolean',
-	} as never;
+  return {
+    type: "boolean",
+  } as never
 }

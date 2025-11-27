@@ -1,5 +1,13 @@
 # @brainylab/resolver-validators
 
+## 0.6.0
+
+### Minor Changes
+
+- [`f623800`](https://github.com/brainylab/resolver-validators/commit/f623800a2641c7968cd9bbc9614525797ed21679) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - add suport do zod
+
+- [#12](https://github.com/brainylab/resolver-validators/pull/12) [`3dddaaf`](https://github.com/brainylab/resolver-validators/commit/3dddaaf7a953ad77f49754cb45566ad1b7209d4c) Thanks [@github-actions](https://github.com/apps/github-actions)! - create function resolver "or" and types
+
 ## 0.5.0
 
 ### Minor Changes

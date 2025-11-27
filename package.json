@@ -1,6 +1,6 @@
 {
 	"name": "@brainylab/resolver-validators",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"description": "",
 	"keywords": [],
 	"bugs": {
@@ -17,17 +17,10 @@
 	},
 	"type": "module",
 	"files": [
-		"index.js",
-		"index.d.ts",
-		"index.cjs",
-		"typebox"
+		"dist"
 	],
 	"scripts": {
-		"build": "rimraf dist && pnpm build:core && pnpm build:typebox && pnpm build:create:package && pnpm build:copy:files",
-		"build:copy:files": "cp -r ./dist/** ./",
-		"build:core": "tsup src/index.ts --dts",
-		"build:create:package": "node ./scripts/create-package.mjs",
-		"build:typebox": "tsup src/resolvers/typebox/index.ts --dts --out-dir dist/typebox",
+		"build": "pnpm tsup",
 		"commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
 		"commit:add": "git add .",
 		"commit:detail": "cz",
@@ -43,36 +36,29 @@
 		"version": "changeset version",
 		"version:beta": "changeset version --snapshot beta"
 	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
-	},
 	"devDependencies": {
-		"@brainylab/eslint-config": "2.7.0",
-		"@brainylab/prettier-config": "1.0.1",
+		"@biomejs/biome": "2.3.6",
 		"@changesets/changelog-github": "0.5.0",
 		"@changesets/cli": "2.24.1",
 		"@changesets/get-release-plan": "3.0.12",
 		"@changesets/types": "5.1.0",
-		"@sinclair/typebox": "0.33.15",
+		"@sinclair/typebox": "0.34.41",
 		"@types/node": "^22.7.4",
 		"@vitest/coverage-v8": "2.1.2",
 		"@vitest/ui": "2.1.2",
 		"clean-package": "2.2.0",
-		"commitizen": "4.3.0",
-		"cz-conventional-changelog": "3.3.0",
 		"rimraf": "6.0.1",
 		"tsup": "8.3.0",
 		"tsx": "4.19.1",
 		"typescript": "5.6.2",
 		"vite-tsconfig-paths": "5.0.1",
-		"vitest": "2.1.2"
+		"vitest": "2.1.2",
+		"zod": "4.1.13"
 	},
-	"packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
 	"publishConfig": {
 		"access": "public",
 		"provenance": true
 	},
+	"packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d",
 	"clean-package": "./clean-package.config.json"
 }

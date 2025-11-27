@@ -1,13 +1,13 @@
-import type { RVSchema } from './schema';
-import type { RVParams } from './params';
+import type { RVParams } from "./params"
+import type { RVSchema } from "./schema"
 
 export type RVStringParams = RVParams & {
-	format?: 'email';
-	pattern?: string;
-};
+  format?: "email"
+  pattern?: string | RegExp
+}
 
 export interface RVString extends RVSchema {
-	type: 'string';
-	infer: string;
-	params?: RVStringParams;
+  type: "string"
+  infer: string
+  params?: RVStringParams
 }

@@ -3,23 +3,27 @@
 		"devDependencies",
 		"dependencies",
 		"scripts",
-		"prettier",
-		"config"
+		"packageManager"
 	],
 	"replace": {
-		"main": "./index.cjs",
-		"module": "./index.js",
-		"types": "./index.d.ts",
+		"main": "./dist/index.cjs",
+		"module": "./dist/index.js",
+		"types": "./dist/index.d.ts",
 		"exports": {
 			".": {
-				"types": "./index.d.ts",
-				"import": "./index.js",
-				"require": "./index.cjs"
+				"types": "./dist/index.d.ts",
+				"import": "./dist/index.js",
+				"require": "./dist/index.cjs"
 			},
 			"./typebox": {
-				"types": "./typebox/index.d.ts",
-				"import": "./typebox/index.js",
-				"require": "./typebox/index.cjs"
+				"types": "./dist/typebox/index.d.ts",
+				"import": "./dist/typebox/index.js",
+				"require": "./dist/typebox/index.cjs"
+			},
+			"./zod": {
+				"types": "./dist/zod/index.d.ts",
+				"import": "./dist/zod/index.js",
+				"require": "./dist/zod/index.cjs"
 			},
 			"./package.json": "./package.json"
 		}

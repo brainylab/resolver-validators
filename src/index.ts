@@ -1,55 +1,70 @@
-/* eslint-disable import/order */
-export type * from './types/infer-types';
-export type * from './types/helpers';
-export type * from './types/infer-types';
-export type * from './types/params';
-export type * from './types/schema';
+export type * from "./types/helpers"
+export type * from "./types/infer-types"
+export type * from "./types/infer-types"
+export type * from "./types/params"
+export type * from "./types/schema"
 
-import { array } from './core/array';
-export type * from './types/array';
+import { array } from "./core/array"
 
-import { boolean } from './core/boolean';
-export type * from './types/boolean';
+export type * from "./types/array"
 
-import { date } from './core/date';
-export type * from './types/date';
+import { boolean } from "./core/boolean"
 
-import { number } from './core/number';
-export type * from './types/number';
+export type * from "./types/boolean"
 
-import { object } from './core/object';
-export type * from './types/object';
+import { date } from "./core/date"
 
-import { optional } from './core/optional';
-export type * from './types/optional';
+export type * from "./types/date"
 
-import { required } from './core/required';
-export type * from './types/required';
+import { number } from "./core/number"
 
-import { or } from './core/or';
-// export type * from './types/required';
+export type * from "./types/number"
 
-import { string } from './core/string';
-export type * from './types/string';
+import { object } from "./core/object"
 
-import { tuple } from './core/tuple';
-export type * from './types/tuple';
+export type * from "./types/object"
 
-export * from './core/utils';
-import { isArray, isObject, isTuple } from './core/utils';
+import { optional } from "./core/optional"
+
+export type * from "./types/optional"
+
+import { nullable } from "./core/nullable"
+
+export type * from "./types/nullable"
+
+import { required } from "./core/required"
+
+export type * from "./types/required"
+
+import { or } from "./core/or"
+
+export type * from "./types/required"
+
+import { string } from "./core/string"
+
+export type * from "./types/string"
+
+import { tuple } from "./core/tuple"
+
+export type * from "./types/tuple"
+
+export * from "./core/utils"
+
+import { isArray, isObject, isTuple } from "./core/utils"
 
 export const rv = {
-	array,
-	boolean,
-	date,
-	number,
-	object,
-	optional,
-	required,
-	or,
-	string,
-	tuple,
-	isArray,
-	isObject,
-	isTuple,
-};
+  array,
+  boolean,
+  date,
+  number,
+  object,
+  optional,
+  nullable,
+  required,
+  or,
+  string,
+  tuple,
+  isArray,
+  isObject,
+  isTuple,
+}
