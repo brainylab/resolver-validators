@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.6.1
+
+### Patch Changes
+
+- [`fe18a49`](https://github.com/brainylab/resolver-validators/commit/fe18a499c27b91186b32ae44f67ba91bd0840240) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix build and create types from project
+
 ## 0.6.0
 
 ### Minor Changes
