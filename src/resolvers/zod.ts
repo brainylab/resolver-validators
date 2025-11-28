@@ -117,6 +117,27 @@ function resolverPrimitiveSchema(
       options as unknown as ResolverObjectSchema,
     ) as ZodObject;
   }
+
+  if (options.type === "optional") {
+    const inner = resolverPrimitiveSchema(options.schema as PrimitiveSchema);
+    if (!inner) return undefined;
+    return (inner as ZodType).optional();
+  }
+
+  if (options.type === "nullable") {
+    const inner = resolverPrimitiveSchema(options.schema as PrimitiveSchema);
+    if (!inner) return undefined;
+    return (inner as ZodType).nullable();
+  }
+
+  if (options.type === "or" && options.schemas) {
+    const resolved = options.schemas
+      .map((s) => resolverPrimitiveSchema(s as PrimitiveSchema))
+      .filter(Boolean) as ZodType[];
+    if (resolved.length === 0) return undefined;
+
+    return z.union(resolved as ZodType[]);
+  }
 }
 
 function resolverObjectSchema(opts: ResolverObjectSchema) {
