@@ -1,14 +1,14 @@
-import { describe, expect, it } from "vitest"
-import { z } from "zod"
+import { describe, expect, it } from "vitest";
+import { z } from "zod";
 
-import { rv } from "../../index"
-import { resolver } from "./resolver"
+import { rv } from "..";
+import { resolver } from "./zod";
 
 describe("Zod Resolver", () => {
   it("resolver core schema to zod validator", () => {
     const schema = {
       name: "john doe",
-      age: 30,
+      age: "30",
       description: "teste",
       isActive: true,
       other: {
@@ -17,12 +17,12 @@ describe("Zod Resolver", () => {
       },
       hobbies: ["development"],
       cities: ["New York", 10],
-      date: "",
-    }
+      date: new Date("2025-01-01"),
+    };
 
     const coreSchema = rv.object({
-      name: rv.required(rv.string(), { description: "description test" }),
-      age: rv.optional(rv.number({ min: 2 })),
+      name: rv.string({ description: "description test", coerce: true }),
+      age: rv.optional(rv.number({ min: 2, coerce: true })),
       isActive: rv.boolean(),
       description: rv.nullable(rv.string()),
       other: rv.object({
@@ -32,11 +32,11 @@ describe("Zod Resolver", () => {
       hobbies: rv.array(rv.string()),
       cities: rv.tuple([rv.string(), rv.number()]),
       date: rv.or(rv.date(), rv.string()),
-    })
+    });
 
     const zodSchema = z.object({
       name: z.string().describe("description test"),
-      age: z.number().min(2).optional(),
+      age: z.coerce.number().min(2).optional(),
       isActive: z.boolean(),
       description: z.string().nullable(),
       other: z.object({
@@ -46,10 +46,10 @@ describe("Zod Resolver", () => {
       hobbies: z.array(z.string()),
       cities: z.tuple([z.string(), z.number()]),
       date: z.date().or(z.string()),
-    })
+    });
 
-    const resolvedZod = resolver(coreSchema)
+    const resolvedZod = resolver(coreSchema);
 
-    expect(resolvedZod.parse(schema)).toEqual(zodSchema.parse(schema))
-  })
-})
+    expect(resolvedZod.parse(schema)).toEqual(zodSchema.parse(schema));
+  });
+});

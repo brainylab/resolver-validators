@@ -1,5 +1,57 @@
 # @brainylab/resolver-validators
 
+## 0.7.4
+
+### Patch Changes
+
+- [`e76954e`](https://github.com/brainylab/resolver-validators/commit/e76954eccde1ededcb7f62d69ced3f461b5184c6) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - Add coerce support to Zod resolver
+
+- [`2219f18`](https://github.com/brainylab/resolver-validators/commit/2219f186de905e327988fdedad746de02e73d5c3) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - refactor(typebox-resolver): update resolver for new TypeBox version
+
+## 0.7.3
+
+### Patch Changes
+
+- [`c5c2758`](https://github.com/brainylab/resolver-validators/commit/c5c275882defee217ebcc78aed13766e9091440d) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix export shcema type
+
+## 0.7.2
+
+### Patch Changes
+
+- [`0aff3f7`](https://github.com/brainylab/resolver-validators/commit/0aff3f7ed12d38e585aa7e8987f0117a9a2b706a) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix exports
+
+## 0.7.1
+
+### Patch Changes
+
+- [`e539dfb`](https://github.com/brainylab/resolver-validators/commit/e539dfb2b9922214dc4e9acaf3af5186ce6f89f3) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - export resolvers
+
+- [`8ca0e4c`](https://github.com/brainylab/resolver-validators/commit/8ca0e4c521ff6518feede79b36af44a712d2c1c1) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - export resolvers
+
+## 0.7.0
+
+### Minor Changes
+
+- [`0d7a189`](https://github.com/brainylab/resolver-validators/commit/0d7a1896102c20d3286a547fbc440eb69433c0f7) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - refactor code base
+
+## 0.6.3
+
+### Patch Changes
+
+- [`54b4d0e`](https://github.com/brainylab/resolver-validators/commit/54b4d0e6e38f1f57c51d76a75a6d02a94f7e3ace) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix build and types
+
+## 0.6.2
+
+### Patch Changes
+
+- [`2cad7bf`](https://github.com/brainylab/resolver-validators/commit/2cad7bf54c7a3eb1e2b59f4cccb3a3a97509ed29) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix build and types
+
+## 0.6.1
+
+### Patch Changes
+
+- [`fe18a49`](https://github.com/brainylab/resolver-validators/commit/fe18a499c27b91186b32ae44f67ba91bd0840240) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix build and create types from project
+
 ## 0.6.0
 
 ### Minor Changes
