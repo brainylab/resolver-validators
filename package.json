@@ -20,11 +20,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm build:core && pnpm build:resolvers:typebox && pnpm build:resolvers:zod && pnpm build:copy:files",
+    "build": "pnpm build:core && pnpm build:resolvers:typebox && pnpm build:resolvers:zod",
     "build:core": "pnpm tsup ./src/index.ts --clean",
     "build:resolvers:typebox": "pnpm tsup ./src/resolvers/typebox.ts --out-dir dist/resolvers --clean",
     "build:resolvers:zod": "pnpm tsup ./src/resolvers/zod.ts --out-dir dist/resolvers",
-    "build:copy:files": "cp -r ./src/resolvers/package.json ./dist/resolvers",
     "commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
     "commit:add": "git add .",
     "commit:detail": "cz",

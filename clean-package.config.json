@@ -10,12 +10,12 @@
         "import": "./dist/index.js",
         "require": "./dist/index.cjs"
       },
-      "./resolvers/typebox": {
+      "./typebox": {
         "types": "./dist/resolvers/typebox.d.ts",
         "import": "./dist/resolvers/typebox.js",
         "require": "./dist/resolvers/typebox.cjs"
       },
-      "./resolvers/zod": {
+      "./zod": {
         "types": "./dist/resolvers/zod.d.ts",
         "import": "./dist/resolvers/zod.js",
         "require": "./dist/resolvers/zod.cjs"
