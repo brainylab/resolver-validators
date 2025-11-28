@@ -12,7 +12,7 @@ import {
 } from "./rv";
 import { isArray, isObject, isTuple } from "./utils";
 
-export type { InferTypes } from "./types";
+export type { InferTypes, RVSchema } from "./types";
 
 export const rv = {
   array,
