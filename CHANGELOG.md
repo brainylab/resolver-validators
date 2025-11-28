@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.7.3
+
+### Patch Changes
+
+- [`c5c2758`](https://github.com/brainylab/resolver-validators/commit/c5c275882defee217ebcc78aed13766e9091440d) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix export shcema type
+
 ## 0.7.2
 
 ### Patch Changes
