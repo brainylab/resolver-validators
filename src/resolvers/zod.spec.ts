@@ -52,4 +52,35 @@ describe("Zod Resolver", () => {
 
     expect(resolvedZod.parse(schema)).toEqual(zodSchema.parse(schema));
   });
+
+  it("resolve zod schema with optinal and nullable", () => {
+    const schema = {
+      name: {
+        reference: "5087",
+      },
+    };
+
+    const coreSchema = rv.object({
+      name: rv.nullable(
+        rv.optional(
+          rv.object({
+            reference: rv.string(),
+          }),
+        ),
+      ),
+    });
+
+    const zodSchema = z.object({
+      name: z
+        .object({
+          reference: z.string(),
+        })
+        .optional()
+        .nullable(),
+    });
+
+    const resolvedZod = resolver(coreSchema);
+
+    expect(resolvedZod.parse(schema)).toEqual(zodSchema.parse(schema));
+  });
 });

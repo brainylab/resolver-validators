@@ -41,9 +41,12 @@ type SchemaType = InferTypes<typeof newSchema>;
 //resolve to typebox
 
 import { resolver } from '@brainylab/resolver-validators/typebox';
-const resolveToTypeBox = resolver(newSchema);
 
 // `resolveToTypeBox` is instance resolved from TypeBox
+const resolveToTypeBox = resolver(newSchema);
 
-// resolve to zod (in development)
+import { resolver } from '@brainylab/resolver-validators/zod';
+
+// `resolveToZod` is instance resolved from Zod
+const resolveToZod = resolver(newSchema);
 ```
