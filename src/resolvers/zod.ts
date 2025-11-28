@@ -1,6 +1,8 @@
 import { type ZodArray, type ZodObject, type ZodType, z } from "zod";
 
 import type {
+  RVBooleanParams,
+  RVDateParams,
   RVNumberParams,
   RVParams,
   RVSchema,
@@ -32,7 +34,13 @@ function resolverPrimitiveSchema(
     if (params?.format) return z.email();
     if (params?.pattern) z.regex(params.pattern as RegExp);
 
-    const sSchema = z.string();
+    let sSchema = null;
+
+    if (params?.coerce) {
+      sSchema = z.coerce.string();
+    } else {
+      sSchema = z.string();
+    }
 
     if (params?.min) sSchema.min(params.min);
     if (params?.max) sSchema.max(params.max);
@@ -43,9 +51,15 @@ function resolverPrimitiveSchema(
   }
 
   if (options.type === "number") {
-    const { params } = options as { params: RVParams & RVNumberParams };
+    const { params } = options as { params: RVNumberParams };
 
-    const nSchema = z.number();
+    let nSchema = null;
+
+    if (params?.coerce) {
+      nSchema = z.coerce.number();
+    } else {
+      nSchema = z.number();
+    }
 
     if (params?.min) nSchema.min(params.min);
     if (params?.max) nSchema.max(params.max);
@@ -55,11 +69,31 @@ function resolverPrimitiveSchema(
   }
 
   if (options.type === "boolean") {
-    return z.boolean();
+    const { params } = options as { params: RVBooleanParams };
+
+    let bSchema = null;
+
+    if (params?.coerce) {
+      bSchema = z.coerce.boolean();
+    } else {
+      bSchema = z.boolean();
+    }
+
+    return bSchema;
   }
 
   if (options.type === "date") {
-    return z.date();
+    const { params } = options as { params: RVDateParams };
+
+    let dSchema = null;
+
+    if (params?.coerce) {
+      dSchema = z.coerce.date();
+    } else {
+      dSchema = z.date();
+    }
+
+    return dSchema;
   }
 
   if (options.type === "array") {
