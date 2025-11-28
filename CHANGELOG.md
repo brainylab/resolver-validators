@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.7.0
+
+### Minor Changes
+
+- [`0d7a189`](https://github.com/brainylab/resolver-validators/commit/0d7a1896102c20d3286a547fbc440eb69433c0f7) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - refactor code base
+
 ## 0.6.3
 
 ### Patch Changes
