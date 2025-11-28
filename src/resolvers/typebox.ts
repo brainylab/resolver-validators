@@ -1,14 +1,16 @@
 import {
-  type SchemaOptions,
   type TArray,
   type TObject,
+  type TProperties,
   type TSchema,
+  type TSchemaOptions,
   Type,
-} from "@sinclair/typebox";
+} from "typebox";
 
 import type { RVParams, RVSchema, RVTypes } from "../types";
 
 import { isObject } from "../utils";
+import { TBDate } from "./typebox-helpers";
 
 type PrimitiveSchema = {
   type: RVTypes;
@@ -24,7 +26,7 @@ type ResolverObjectSchema = {
 };
 
 function resolveParams<P extends Record<string, string>>(params?: RVParams) {
-  const typeBoxParams: SchemaOptions = {};
+  const typeBoxParams: TSchemaOptions = {};
 
   const keys: { [key: string]: string } = {
     min: "minLength",
@@ -50,9 +52,7 @@ function resolveParams<P extends Record<string, string>>(params?: RVParams) {
 /**
  * resolve schema
  */
-function resolverPrimitiveSchema(
-  options: PrimitiveSchema,
-): TSchema | undefined {
+function resolverPrimitiveSchema(options: PrimitiveSchema): TSchema {
   if (options.type === "string") {
     return Type.String(resolveParams(options.params));
   }
@@ -66,7 +66,7 @@ function resolverPrimitiveSchema(
   }
 
   if (options.type === "date") {
-    return Type.Date();
+    return TBDate();
   }
 
   if (options.type === "array") {
@@ -82,12 +82,6 @@ function resolverPrimitiveSchema(
     return Type.Tuple(tuplePrimitiveResolved as TSchema[]);
   }
 
-  if (options.type === "object") {
-    return resolverObjectSchema(
-      options as unknown as ResolverObjectSchema,
-    ) as TObject;
-  }
-
   if (options.type === "optional") {
     return Type.Optional(
       resolverPrimitiveSchema(options.schema as PrimitiveSchema) as TSchema,
@@ -95,9 +89,10 @@ function resolverPrimitiveSchema(
   }
 
   if (options.type === "nullable") {
-    return Type.Null(
+    return Type.Union([
       resolverPrimitiveSchema(options.schema as PrimitiveSchema) as TSchema,
-    );
+      Type.Null(),
+    ]);
   }
 
   if (options.type === "or") {
@@ -107,11 +102,15 @@ function resolverPrimitiveSchema(
       ) as TSchema[],
     );
   }
+
+  return resolverObjectSchema(
+    options as unknown as ResolverObjectSchema,
+  ) as TObject;
 }
 
 function resolverObjectSchema(schema: ResolverObjectSchema) {
   if (schema.type === "object") {
-    const resolvedTypeBox = {} as TObject;
+    const resolvedTypebox: TProperties = {} as TProperties;
 
     const primitiveSchema = schema.schema;
 
@@ -119,23 +118,23 @@ function resolverObjectSchema(schema: ResolverObjectSchema) {
       const value = primitiveSchema[key];
 
       if (value.type === "optional") {
-        resolvedTypeBox[key] = resolverPrimitiveSchema(value);
+        resolvedTypebox[key] = resolverPrimitiveSchema(value);
         continue;
       }
 
-      resolvedTypeBox[key] = Type.Required(
-        resolverPrimitiveSchema(value as PrimitiveSchema) as TSchema,
-        value.params,
-      );
+      resolvedTypebox[key] = resolverPrimitiveSchema(
+        value as PrimitiveSchema,
+      ) as TSchema;
     }
 
-    return Type.Object(resolvedTypeBox);
+    return Type.Object(resolvedTypebox);
   }
 }
 
-export function resolver(schema: RVSchema) {
+export function resolver(schema: RVSchema): TSchema {
   if (isObject(schema)) {
-    return resolverObjectSchema(schema as ResolverObjectSchema);
+    console.log("aqui 3");
+    return resolverObjectSchema(schema as ResolverObjectSchema) as TSchema;
   }
 
   return resolverPrimitiveSchema(schema as PrimitiveSchema);
