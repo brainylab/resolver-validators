@@ -1,26 +1,33 @@
 {
   "remove": ["devDependencies", "dependencies", "scripts"],
   "replace": {
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.js",
+    "type": "module",
     "types": "./dist/index.d.ts",
+    "module": "./dist/index.js",
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
         "import": "./dist/index.js",
-        "require": "./dist/index.cjs"
+        "default": "./dist/index.js"
       },
       "./typebox": {
         "types": "./dist/resolvers/typebox.d.ts",
         "import": "./dist/resolvers/typebox.js",
-        "require": "./dist/resolvers/typebox.cjs"
+        "default": "./dist/resolvers/typebox.js"
       },
       "./zod": {
         "types": "./dist/resolvers/zod.d.ts",
         "import": "./dist/resolvers/zod.js",
-        "require": "./dist/resolvers/zod.cjs"
+        "default": "./dist/resolvers/zod.js"
       },
       "./package.json": "./package.json"
+    },
+    "typesVersions": {
+      "*": {
+        "typebox": ["./dist/resolvers/typebox.d.ts"],
+        "zod": ["./dist/resolvers/zod.d.ts"],
+        ".": ["./dist/index.d.ts"]
+      }
     }
   }
 }
