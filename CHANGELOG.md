@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.1
+
+### Patch Changes
+
+- [`54c0fa4`](https://github.com/brainylab/resolver-validators/commit/54c0fa47b24d50e76036fc7cbc28a33e671c01c7) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix build
+
 ## 0.8.0
 
 ### Minor Changes
