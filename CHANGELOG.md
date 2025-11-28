@@ -1,5 +1,13 @@
 # @brainylab/resolver-validators
 
+## 0.7.4
+
+### Patch Changes
+
+- [`e76954e`](https://github.com/brainylab/resolver-validators/commit/e76954eccde1ededcb7f62d69ced3f461b5184c6) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - Add coerce support to Zod resolver
+
+- [`2219f18`](https://github.com/brainylab/resolver-validators/commit/2219f186de905e327988fdedad746de02e73d5c3) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - refactor(typebox-resolver): update resolver for new TypeBox version
+
 ## 0.7.3
 
 ### Patch Changes
