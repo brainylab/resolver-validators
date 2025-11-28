@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./typebox": {
+      "types": "./typebox.d.ts",
+      "import": "./typebox.js",
+      "require": "./typebox.cjs"
+    },
+    "./zod": {
+      "types": "./zod.d.ts",
+      "import": "./zod.js",
+      "require": "./zod.cjs"
+    },
+    "./package.json": "./package.json"
+  }
+}
