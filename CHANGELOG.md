@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.0
+
+### Minor Changes
+
+- [`40450f2`](https://github.com/brainylab/resolver-validators/commit/40450f24a3b8c516ea15e044dd27ae2f9474e131) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - chore: finalize version — convert to ESM-only modules
+
 ## 0.7.4
 
 ### Patch Changes
