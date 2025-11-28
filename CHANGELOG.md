@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.7.2
+
+### Patch Changes
+
+- [`0aff3f7`](https://github.com/brainylab/resolver-validators/commit/0aff3f7ed12d38e585aa7e8987f0117a9a2b706a) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix exports
+
 ## 0.7.1
 
 ### Patch Changes
