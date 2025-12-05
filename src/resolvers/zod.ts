@@ -178,7 +178,9 @@ function resolverObjectSchema(opts: ResolverObjectSchema) {
   return z.object(resolvedZod) as ZodObject;
 }
 
-export function resolver(schema: RVSchema): ZodType | ZodObject {
+export function resolver(schema?: RVSchema): ZodType | ZodObject {
+  if (!schema) return z.any();
+
   if (isObject(schema)) {
     return resolverObjectSchema(schema as ResolverObjectSchema);
   }
