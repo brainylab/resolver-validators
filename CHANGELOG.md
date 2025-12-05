@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.3
+
+### Patch Changes
+
+- [`245fc31`](https://github.com/brainylab/resolver-validators/commit/245fc31c0f53b3d1521c39d6b5447cd699e87fa8) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix received undefined properties
+
 ## 0.8.2
 
 ### Patch Changes
