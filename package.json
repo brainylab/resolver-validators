@@ -20,10 +20,7 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "pnpm build:core && pnpm build:resolvers:typebox && pnpm build:resolvers:zod",
-    "build:core": "pnpm tsup ./src/index.ts --clean",
-    "build:resolvers:typebox": "pnpm tsup ./src/resolvers/typebox.ts --out-dir dist/resolvers --clean",
-    "build:resolvers:zod": "pnpm tsup ./src/resolvers/zod.ts --out-dir dist/resolvers",
+    "build": "pnpm tsup --clean",
     "commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
     "commit:add": "git add .",
     "commit:detail": "cz",
