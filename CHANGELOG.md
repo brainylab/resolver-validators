@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.5
+
+### Patch Changes
+
+- [`f9d8661`](https://github.com/brainylab/resolver-validators/commit/f9d86616340db6dc776d837b40a7e78dc65f22f4) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix build typebox-deprecated
+
 ## 0.8.4
 
 ### Patch Changes
