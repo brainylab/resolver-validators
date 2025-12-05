@@ -7,5 +7,5 @@ export default defineConfig({
   splitting: false,
   bundle: true,
   dts: true,
-  external: ["typebox", "zod"],
+  external: ["typebox", "zod", "@sinclair/typebox"],
 });

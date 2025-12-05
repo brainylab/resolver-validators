@@ -15,6 +15,11 @@
         "import": "./dist/resolvers/typebox.js",
         "default": "./dist/resolvers/typebox.js"
       },
+      "./typebox-deprecated": {
+        "types": "./dist/resolvers/typebox-deprecated.d.ts",
+        "import": "./dist/resolvers/typebox-deprecated.js",
+        "default": "./dist/resolvers/typebox-deprecated.js"
+      },
       "./zod": {
         "types": "./dist/resolvers/zod.d.ts",
         "import": "./dist/resolvers/zod.js",
