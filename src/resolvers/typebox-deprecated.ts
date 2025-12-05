@@ -183,7 +183,7 @@ function resolverObjectSchema(schema: ResolverObjectSchema): TSchema {
   return Type.Object(resolvedTypeBox);
 }
 
-export function resolver(schema: RVSchema): TSchema {
+export function resolver(schema?: RVSchema): TSchema {
   if (!schema) return Type.Any();
 
   if (isObject(schema)) {
