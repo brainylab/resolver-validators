@@ -14,8 +14,6 @@ import {
   Type,
 } from "@sinclair/typebox";
 
-import { isObject } from "@/utils";
-
 import type {
   RVNumberParams,
   RVParams,
@@ -23,6 +21,8 @@ import type {
   RVStringParams,
   RVTypes,
 } from "@/types";
+
+import { isObject } from "../utils";
 
 function TBString(params?: RVStringParams): TString {
   const typeBoxParams: StringOptions = {};
