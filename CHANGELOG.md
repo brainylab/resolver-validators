@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.7
+
+### Patch Changes
+
+- [`5e64d69`](https://github.com/brainylab/resolver-validators/commit/5e64d69e4ddf8b353d4a9fc503c7cc48e8cdf6bd) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - Make resolver schema parameter optional
+
 ## 0.8.6
 
 ### Patch Changes
