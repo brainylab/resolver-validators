@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.4
+
+### Patch Changes
+
+- [`03a372b`](https://github.com/brainylab/resolver-validators/commit/03a372bb7b6287453965d559367cc6e82b34025e) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - add deprecated version from typebox, compatible from elysia
+
 ## 0.8.3
 
 ### Patch Changes
