@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.6
+
+### Patch Changes
+
+- [`5b03aba`](https://github.com/brainylab/resolver-validators/commit/5b03aba347737e7aa3d68540cd9ba0be2125b623) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix: fix received undefined in resolver function e resolve or undefined
+
 ## 0.8.5
 
 ### Patch Changes
