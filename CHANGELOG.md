@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.8
+
+### Patch Changes
+
+- [`cb6e959`](https://github.com/brainylab/resolver-validators/commit/cb6e959d146f282e9ad066081067f5e8003e7cb2) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix import utils on typebox-deprecated resolver
+
 ## 0.8.7
 
 ### Patch Changes
