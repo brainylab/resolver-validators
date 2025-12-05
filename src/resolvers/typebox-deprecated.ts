@@ -24,9 +24,6 @@ import type {
   RVTypes,
 } from "@/types";
 
-// import { TBOptional } from "./optional";
-// import { TBRequired } from "./required";
-
 function TBString(params?: RVStringParams): TString {
   const typeBoxParams: StringOptions = {};
 
@@ -99,10 +96,6 @@ function TBNumber(params?: RVNumberParams): TNumber {
   return Type.Number(typeBoxParams);
 }
 
-function TBObject(schema: TObject): TObject {
-  return Type.Object(schema);
-}
-
 type PrimitiveSchema = {
   type: RVTypes;
   schema?: RVSchema;
@@ -116,9 +109,7 @@ type ResolverObjectSchema = {
   schema: { [key: string]: PrimitiveSchema };
 };
 
-function resolverPrimitiveSchema(
-  options: PrimitiveSchema,
-): TSchema | undefined {
+function resolverPrimitiveSchema(options: PrimitiveSchema): TSchema {
   if (options.type === "string") {
     return TBString(options.params);
   }
@@ -148,12 +139,6 @@ function resolverPrimitiveSchema(
     return TBTuple(tuplePrimitiveResolved as TSchema[]);
   }
 
-  if (options.type === "object") {
-    return resolverObjectSchema(
-      options as unknown as ResolverObjectSchema,
-    ) as TObject;
-  }
-
   if (options.type === "optional") {
     return TBOptional(
       resolverPrimitiveSchema(options.schema as PrimitiveSchema) as TSchema,
@@ -173,30 +158,34 @@ function resolverPrimitiveSchema(
       ) as TSchema[],
     );
   }
+
+  return resolverObjectSchema(
+    options as unknown as ResolverObjectSchema,
+  ) as TObject;
 }
 
-function resolverObjectSchema(schema: ResolverObjectSchema) {
-  if (schema.type === "object") {
-    const resolvedTypeBox = {} as TObject;
+function resolverObjectSchema(schema: ResolverObjectSchema): TSchema {
+  const resolvedTypeBox = {} as TObject;
 
-    const primitiveSchema = schema.schema;
+  const primitiveSchema = schema.schema;
 
-    for (const key in primitiveSchema) {
-      const value = primitiveSchema[key];
+  for (const key in primitiveSchema) {
+    const value = primitiveSchema[key];
 
-      if (value.type === "optional") {
-        resolvedTypeBox[key] = resolverPrimitiveSchema(value);
-        continue;
-      }
-
+    if (value.type === "optional") {
       resolvedTypeBox[key] = resolverPrimitiveSchema(value);
+      continue;
     }
 
-    return TBObject(resolvedTypeBox);
+    resolvedTypeBox[key] = resolverPrimitiveSchema(value);
   }
+
+  return Type.Object(resolvedTypeBox);
 }
 
-export function resolver(schema: RVSchema) {
+export function resolver(schema: RVSchema): TSchema {
+  if (!schema) return Type.Any();
+
   if (isObject(schema)) {
     return resolverObjectSchema(schema as ResolverObjectSchema);
   }
