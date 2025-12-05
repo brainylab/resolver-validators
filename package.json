@@ -1,6 +1,6 @@
 {
   "name": "@brainylab/resolver-validators",
-  "version": "0.8.3",
+  "version": "0.8.5",
   "description": "",
   "keywords": [],
   "bugs": {
@@ -20,10 +20,7 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "pnpm build:core && pnpm build:resolvers:typebox && pnpm build:resolvers:zod",
-    "build:core": "pnpm tsup ./src/index.ts --clean",
-    "build:resolvers:typebox": "pnpm tsup ./src/resolvers/typebox.ts --out-dir dist/resolvers --clean",
-    "build:resolvers:zod": "pnpm tsup ./src/resolvers/zod.ts --out-dir dist/resolvers",
+    "build": "pnpm tsup --clean",
     "commit": "pnpm commit:add && pnpm commit:detail && pnpm commit:push",
     "commit:add": "git add .",
     "commit:detail": "cz",
@@ -45,6 +42,7 @@
     "@changesets/cli": "2.29.8",
     "@changesets/get-release-plan": "4.0.14",
     "@changesets/types": "6.1.0",
+    "@sinclair/typebox": "0.34.41",
     "@types/node": "^22.7.4",
     "@vitest/coverage-v8": "2.1.2",
     "@vitest/ui": "2.1.2",

@@ -1,11 +1,11 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["!./src/**/*.spec.ts"],
+  entry: ["src", "!./src/**/*.spec.ts"],
   target: "es2022",
   format: ["esm"],
   splitting: false,
-  bundle: true,
+  bundle: false,
   dts: true,
-  external: ["typebox", "zod"],
+  external: ["typebox", "zod", "@sinclair/typebox"],
 });
