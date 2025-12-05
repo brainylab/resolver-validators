@@ -24,11 +24,11 @@ jobs:
       - name: install and configure git
         uses: ./.github/common-actions/install
 
-      - name: build packages
-        run: pnpm build
-
       - name: test
         run: pnpm test
+
+      - name: build packages
+        run: pnpm build
 
       - name: npm package registry authentication
         run: npm set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
@@ -40,8 +40,8 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: pnpm release
-          title: 'ci(changesets): :package: version packages'
-          commit: 'ci(changesets): version packages'
+          title: "ci(changesets): :package: version packages"
+          commit: "ci(changesets): version packages"
           setupGitUser: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
