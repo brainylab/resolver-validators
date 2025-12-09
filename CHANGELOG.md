@@ -1,5 +1,29 @@
 # @brainylab/resolver-validators
 
+## 0.8.9
+
+### Patch Changes
+
+- [`9a02ee1`](https://github.com/brainylab/resolver-validators/commit/9a02ee14bf642ff14ffe3e61332fb47a4de1fd5a) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - "fix when adding the parameters in the zod parse
+
+## 0.8.8
+
+### Patch Changes
+
+- [`cb6e959`](https://github.com/brainylab/resolver-validators/commit/cb6e959d146f282e9ad066081067f5e8003e7cb2) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix import utils on typebox-deprecated resolver
+
+## 0.8.7
+
+### Patch Changes
+
+- [`5e64d69`](https://github.com/brainylab/resolver-validators/commit/5e64d69e4ddf8b353d4a9fc503c7cc48e8cdf6bd) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - Make resolver schema parameter optional
+
+## 0.8.6
+
+### Patch Changes
+
+- [`5b03aba`](https://github.com/brainylab/resolver-validators/commit/5b03aba347737e7aa3d68540cd9ba0be2125b623) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - fix: fix received undefined in resolver function e resolve or undefined
+
 ## 0.8.5
 
 ### Patch Changes

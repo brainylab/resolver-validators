@@ -1,7 +1,9 @@
 import type {
   RVArray,
   RVBoolean,
+  RVBooleanParams,
   RVDate,
+  RVDateParams,
   RVNullable,
   RVNumber,
   RVNumberParams,
@@ -22,9 +24,10 @@ export function array<T extends RVSchema>(schema: T): RVArray<T> {
   } as never;
 }
 
-export function boolean(): RVBoolean {
+export function boolean(params?: RVBooleanParams): RVBoolean {
   return {
     type: "boolean",
+    params,
   } as never;
 }
 
@@ -81,8 +84,9 @@ export function nullable<T extends RVSchema>(schema: T): RVNullable<T> {
   } as never;
 }
 
-export function date(): RVDate {
+export function date(params?: RVDateParams): RVDate {
   return {
     type: "date",
+    params,
   } as never;
 }

@@ -109,33 +109,30 @@ function resolverPrimitiveSchema(options: PrimitiveSchema): TSchema {
 }
 
 function resolverObjectSchema(schema: ResolverObjectSchema) {
-  if (schema.type === "object") {
-    const resolvedTypebox: TProperties = {} as TProperties;
+  const resolvedTypebox: TProperties = {} as TProperties;
 
-    const primitiveSchema = schema.schema;
+  const primitiveSchema = schema.schema;
 
-    for (const key in primitiveSchema) {
-      const value = primitiveSchema[key];
+  for (const key in primitiveSchema) {
+    const value = primitiveSchema[key];
 
-      if (value.type === "optional") {
-        resolvedTypebox[key] = resolverPrimitiveSchema(value);
-        continue;
-      }
-
-      resolvedTypebox[key] = resolverPrimitiveSchema(
-        value as PrimitiveSchema,
-      ) as TSchema;
+    if (value.type === "optional") {
+      resolvedTypebox[key] = resolverPrimitiveSchema(value);
+      continue;
     }
 
-    return Type.Object(resolvedTypebox);
+    resolvedTypebox[key] = resolverPrimitiveSchema(
+      value as PrimitiveSchema,
+    ) as TSchema;
   }
+
+  return Type.Object(resolvedTypebox);
 }
 
 export function resolver(schema?: RVSchema): TSchema {
   if (!schema) return Type.Any();
 
   if (isObject(schema)) {
-    console.log("aqui 3");
     return resolverObjectSchema(schema as ResolverObjectSchema) as TSchema;
   }
 
