@@ -1,5 +1,11 @@
 # @brainylab/resolver-validators
 
+## 0.8.9
+
+### Patch Changes
+
+- [`9a02ee1`](https://github.com/brainylab/resolver-validators/commit/9a02ee14bf642ff14ffe3e61332fb47a4de1fd5a) Thanks [@andrefelipeschulle](https://github.com/andrefelipeschulle)! - "fix when adding the parameters in the zod parse
+
 ## 0.8.8
 
 ### Patch Changes
