@@ -133,7 +133,6 @@ export function resolver(schema?: RVSchema): TSchema {
   if (!schema) return Type.Any();
 
   if (isObject(schema)) {
-    console.log("aqui 3");
     return resolverObjectSchema(schema as ResolverObjectSchema) as TSchema;
   }
 

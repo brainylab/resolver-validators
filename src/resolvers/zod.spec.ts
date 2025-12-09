@@ -83,4 +83,20 @@ describe("Zod Resolver", () => {
 
     expect(resolvedZod.parse(schema)).toEqual(zodSchema.parse(schema));
   });
+
+  it("resolve zod number schema number type", async () => {
+    expect(resolver(rv.number()).parse(20)).toEqual(20);
+    expect(resolver(rv.number({ coerce: true })).parse("20")).toEqual(20);
+    expect(resolver(rv.number({ min: 3, max: 5 })).parse(4)).toEqual(4);
+    expect(
+      resolver(rv.object({ age: rv.number({ default: 5 }) })).safeParse({})
+        .data,
+    ).toEqual({ age: 5 });
+    expect(() => resolver(rv.number({ min: 5 })).parse(4)).toThrowError(
+      "Too small: expected number to be >=5",
+    );
+    expect(() => resolver(rv.number({ max: 5 })).parse(6)).toThrowError(
+      "Too big: expected number to be <=5",
+    );
+  });
 });

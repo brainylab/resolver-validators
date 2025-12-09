@@ -44,7 +44,7 @@ export interface RVArray<T extends RVSchema> extends RVArraySchema {
   infer: ArrayStatic<T, this["params"]>;
 }
 
-export type RVDateParams = { coerce?: boolean };
+export type RVDateParams = { coerce?: boolean; default?: Date };
 
 export interface RVDate extends RVSchema {
   type: "date";
@@ -58,7 +58,7 @@ export interface RVNullable<T extends RVSchema> extends RVSchema {
   infer: T extends { infer: infer U } ? U | null : null;
 }
 
-export type RVBooleanParams = { coerce?: boolean };
+export type RVBooleanParams = { coerce?: boolean; default?: boolean };
 
 export interface RVBoolean extends RVSchema {
   type: "boolean";
@@ -70,6 +70,7 @@ export type RVStringParams = RVParams & {
   format?: "email";
   pattern?: string | RegExp;
   coerce?: boolean;
+  default?: string;
 };
 
 export interface RVString extends RVSchema {
@@ -86,6 +87,7 @@ export interface RVOptional<T> extends RVSchema {
 
 export type RVNumberParams = RVParams & {
   coerce?: boolean;
+  default?: number;
 };
 
 export interface RVNumber extends RVSchema {

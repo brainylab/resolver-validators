@@ -42,10 +42,11 @@ function resolverPrimitiveSchema(
       sSchema = z.string();
     }
 
-    if (params?.min) sSchema.min(params.min);
-    if (params?.max) sSchema.max(params.max);
+    if (params?.min) sSchema = sSchema.min(params.min);
+    if (params?.max) sSchema = sSchema.max(params.max);
+    if (params?.default) sSchema = sSchema.default(params.default);
 
-    if (params?.description) sSchema.describe(params.description);
+    if (params?.description) sSchema = sSchema.describe(params.description);
 
     return sSchema;
   }
@@ -61,9 +62,11 @@ function resolverPrimitiveSchema(
       nSchema = z.number();
     }
 
-    if (params?.min) nSchema.min(params.min);
-    if (params?.max) nSchema.max(params.max);
-    if (params?.description) nSchema.describe(params.description);
+    if (params?.min) nSchema = nSchema.min(params.min);
+    if (params?.max) nSchema = nSchema.max(params.max);
+    if (params?.default) nSchema = nSchema.default(params.default);
+
+    if (params?.description) nSchema = nSchema.describe(params.description);
 
     return nSchema;
   }
@@ -79,6 +82,8 @@ function resolverPrimitiveSchema(
       bSchema = z.boolean();
     }
 
+    if (params?.default) bSchema = bSchema.default(params.default);
+
     return bSchema;
   }
 
@@ -92,6 +97,8 @@ function resolverPrimitiveSchema(
     } else {
       dSchema = z.date();
     }
+
+    if (params?.default) dSchema = dSchema.default(params.default);
 
     return dSchema;
   }
